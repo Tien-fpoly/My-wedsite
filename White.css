@@ -1,0 +1,89 @@
+/* ===== IMAGE (GIỐNG BLUE) ===== */
+.item-img {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  background: #fae5e5;
+  padding: 6px;
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s ease;
+}
+
+.item-img:hover {
+  transform: scale(1.15) rotate(-2deg);
+}
+
+/* ===== SECTION ===== */
+.white-table-section {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 30px;
+  background: linear-gradient(135deg, #eaf1f8, #eaeffa);
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+/* ===== TITLE ===== */
+.white-title {
+  text-align: center;
+  font-size: 34px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 30px;
+}
+
+
+
+/* ===== TABLE ===== */
+.white-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #1f2937;
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+/* Header */
+.white-table thead {
+  background: linear-gradient(90deg, #fde68a, #facc15);
+}
+
+.white-table thead th {
+  padding: 16px;
+  text-align: center;
+  font-size: 16px;
+  color: #78350f;
+  font-weight: 700;
+}
+
+/* Body rows */
+.white-table tbody tr {
+  background: rgba(255, 255, 255, 0.6);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  transition: background 0.25s ease;
+}
+
+.white-table tbody tr:hover {
+  background: rgba(250, 204, 21, 0.25);
+}
+
+/* Cells */
+.white-table td {
+  padding: 14px;
+  text-align: center;
+  font-size: 15px;
+  vertical-align: middle;
+}
+
+/* First column */
+.white-table td:first-child {
+  font-weight: 700;
+  color: #92400e;
+}
+
+/* Active nav */
+.nav a.active {
+  color: #fcf7ee;
+  font-weight: 700;
+}
