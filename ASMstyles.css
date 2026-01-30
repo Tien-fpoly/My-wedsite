@@ -197,14 +197,7 @@ code { background: #0b1325; padding: 0.1em 0.35em; border-radius: 0.35em; }
   border-top: 1px solid #1f2937;
   margin-top: 2rem;
 }
-/*
-.site-footer:hover{
-  background-color: rgb(64, 64, 99);
-  display: flex;
-  box-shadow: #4d6588;
-  font-size: large;
-}
-*/
+
 #features {
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
