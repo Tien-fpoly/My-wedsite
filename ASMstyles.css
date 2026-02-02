@@ -398,3 +398,17 @@ code { background: #0b1325; padding: 0.1em 0.35em; border-radius: 0.35em; }
   border-radius: 12px;
 }
 
+/* Link Game */
+.game-link {
+  color: var(--accent);       /* tím giống bạn đang dùng */
+  font-weight: 600;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+.game-link:hover {
+  color: var(--primary);      /* xanh khi hover */
+  text-shadow: 0 0 8px rgba(34, 211, 238, 0.8);
+}
+
