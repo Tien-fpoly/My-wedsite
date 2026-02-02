@@ -73,4 +73,19 @@
   color: #e05252;
   text-shadow: 0 0 4px rgba(180, 60, 60, 0.6);
 }
+.item-img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 12px;
+  padding: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease;
+}
+
+.item-img:hover {
+  transform: scale(1.15);
+}
+
 
