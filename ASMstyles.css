@@ -81,18 +81,19 @@ body {
 
 .nav a:hover { color: #ffffff; }
 
-.nav a {
-  font-size: 1.05rem;
-  font-weight: 600;
-  letter-spacing: 0.03em;
+.site-header .nav a {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
   transition: all 0.25s ease;
 }
 
-.nav a:hover {
-  color: #ffffff;
-  text-shadow: 0 0 10px rgba(34, 211, 238, 0.9);
+.site-header .nav a:hover {
+  color: #ffffff !important;
+  text-shadow: 0 0 12px rgba(34, 211, 238, 1);
   transform: translateY(-2px);
 }
+
 
 
 /* Card surface dùng em bên trong để kế thừa cỡ chữ cha */
