@@ -81,6 +81,12 @@ body {
 
 .nav a:hover { color: #ffffff; }
 
+.nav a {
+  font-size: 1.05rem;        /* to hơn chút */
+  font-weight: 600;          /* đậm hơn */
+  letter-spacing: 0.03em;    /* giãn chữ nhẹ */
+}
+
 /* Card surface dùng em bên trong để kế thừa cỡ chữ cha */
 .card {
   background: var(--surface);
