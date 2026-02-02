@@ -370,3 +370,31 @@ code { background: #0b1325; padding: 0.1em 0.35em; border-radius: 0.35em; }
 .items-table tbody tr:hover {
   background: rgba(56, 189, 248, 0.08);
 }
+
+/* ===== FOOTER 2 BÊN ===== */
+
+.site-footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  text-align: left; /* ghi đè center */
+}
+
+/* BÊN TRÁI */
+.footer-info {
+  flex: 1;
+  line-height: 1.8;
+}
+
+/* BÊN PHẢI */
+.footer-map {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.footer-map iframe {
+  border-radius: 12px;
+}
+
