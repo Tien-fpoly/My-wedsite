@@ -1,0 +1,141 @@
+/* ===== SECTION ===== */
+.blue-table-section {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 36px;
+  background: linear-gradient(135deg, #0b1530, #0f1d40);
+  border: 1px solid rgba(56, 189, 248, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4),
+              inset 0 1px 0 rgba(56, 189, 248, 0.06);
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ===== TITLE ===== */
+.blue-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 30px;
+  letter-spacing: 0.02em;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.blue-title::after {
+  content: " 🐝";
+}
+
+.blue-title::before {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #0ea5ff, #38bdf8, #7dd3fc);
+  border-radius: 3px;
+}
+
+/* ===== TABLE ===== */
+.blue-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #eaf4ff;
+  overflow: hidden;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Header */
+.blue-table thead {
+  background: linear-gradient(90deg, #0c7fd6, #38bdf8, #0ea5ff);
+  background-size: 200% 100%;
+}
+
+.blue-table thead th {
+  padding: 16px;
+  text-align: center;
+  font-size: 16px;
+  color: #022c55;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  position: relative;
+}
+
+/* Body rows */
+.blue-table tbody tr {
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.08);
+  transition: background 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.blue-table tbody tr:hover {
+  background: rgba(14, 165, 255, 0.12);
+}
+
+/* Cells */
+.blue-table td {
+  padding: 14px;
+  text-align: center;
+  font-size: 15px;
+  vertical-align: middle;
+  line-height: 1.5;
+  transition: color 0.2s ease;
+}
+
+/* First column (Loại / Hạng mục) */
+.blue-table td:first-child {
+  font-weight: 700;
+  color: #7dd3fc;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+
+/* ===== IMAGE ===== */
+.item-img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  background: #ffffff;
+  padding: 5px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.item-img:hover {
+  transform: scale(1.18) rotate(-3deg);
+  box-shadow: 0 8px 24px rgba(56, 189, 248, 0.35);
+}
+
+/* ===== BADGE STYLE (optional) ===== */
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.badge:hover {
+  transform: translateY(-1px);
+}
+
+.badge-blue {
+  background: linear-gradient(135deg, #0ea5ff, #38bdf8);
+  color: #022c55;
+  box-shadow: 0 2px 8px rgba(14, 165, 255, 0.3);
+}
+
+.badge-mythic {
+  background: linear-gradient(45deg, #a855f7, #ec4899);
+  color: white;
+  box-shadow: 0 2px 8px rgba(168, 85, 247, 0.3);
+}
