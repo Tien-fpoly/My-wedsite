@@ -1,161 +1,303 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ASM_Wiki Bee Swarm</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Catamaran:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="ASMstyles.css">
+  <meta name="theme-color" content="#070c14" />
+  <title>Bee Swarm Simulator - Wiki &amp; Robux Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Space+Grotesk:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="home.css" />
+  <link rel="stylesheet" href="site-ui.css" />
 </head>
 
-<body class="home-page">
+<body class="home-page game-ui-page">
+  <div class="pollen-particles" aria-hidden="true">
+    <span class="pollen"></span>
+    <span class="pollen"></span>
+    <span class="pollen"></span>
+    <span class="pollen"></span>
+    <span class="pollen"></span>
+  </div>
+
   <header class="site-header">
-    <div class="container">
-      <h1 class="brand">
-        <a href="index.html" aria-label="Về trang chủ Bee Swarm Simulator">
-          <img src="images/logo_BSS.png" alt="Bee Swarm Simulator">
+    <div class="container header-inner">
+      <a class="brand-link" href="index.html" aria-label="Trang chủ Bee Swarm Simulator">
+        <span class="brand-badge"><img src="images/logo_BSS.png" alt="" /></span>
+        <span class="brand-title-wrap">
+          <span class="brand-title">Bee Swarm Wiki</span>
+          <span class="brand-tag">Robux Store &amp; Database</span>
+        </span>
+      </a>
+
+      <nav class="main-nav nav" aria-label="Thanh điều hướng chính">
+        <a class="nav-item" href="items.html"><span aria-hidden="true">📦</span> Vật Phẩm</a>
+        <a class="nav-item" href="bees.html"><span aria-hidden="true">🐝</span> Loài Ong</a>
+        <div class="dropdown nav-dropdown">
+          <button class="nav-item dropdown-btn nav-dropdown-toggle" type="button">
+            <span aria-hidden="true">🛡️</span> Đội Hình
+            <span aria-hidden="true">▾</span>
+          </button>
+          <div class="dropdown-menu nav-dropdown-menu">
+            <a class="dropdown-link" href="blue.html"> Team Blue</a>
+            <a class="dropdown-link" href="red.html"> Team Red</a>
+            <a class="dropdown-link" href="white.html"> Team White</a>
+          </div>
+        </div>
+        <a class="nav-item" href="dangky.html">Đăng Ký</a>
+        <a class="nav-item" href="dangnhap.html">Đăng Nhập</a>
+        <a class="nav-cart-btn header-cart-link" href="cart.html" aria-label="Túi đồ và giỏ hàng">
+          <span>🛒Giỏ hàng </span>
+          <span class="cart-badge cart-count-badge" id="cart-badge">0</span>
         </a>
-      </h1>
-      <nav class="nav">
-        <a href="items.html">Vật Phẩm</a>
-        <a href="bees.html">Ong</a>
-        <a href="blue.html">Team Blue</a>
-        <a href="red.html">Team Red</a>
-        <a href="white.html">Team White</a>
       </nav>
     </div>
   </header>
 
-  <main class="home-main">
-    <!-- Khu vực giới thiệu game; bảng thông tin nằm bên trái, minh họa nằm bên phải. -->
-    <section class="card home-intro">
-      <h2>🐝 Giới thiệu Bee Swarm Simulator</h2>
-
-      <div class="intro-content">
-        <!-- Bảng tóm tắt tên game, nền tảng, lối chơi và các đội hình. -->
-        <table class="items-table intro-table">
-          <tbody>
-            <tr>
-              <th>Tên game</th>
-              <td>
-                <a href="https://www.roblox.com/games/1537690962/Bee-Swarm-Simulator" target="_blank" rel="noopener noreferrer" class="game-link">
-                  <span class="highlight">Bee Swarm Simulator</span>
-                </a>
-              </td>
-            </tr>
-
-            <tr>
-              <th>Nền tảng</th>
-              <td>Roblox</td>
-            </tr>
-
-            <tr>
-              <th>Lối chơi</th>
-              <td>Thu thập phấn, tạo mật ong, xây dựng đội ong</td>
-            </tr>
-
-            <tr>
-              <th>Đội hình</th>
-              <td>
-                <span class="highlight">Blue Team</span>,
-                <span class="highlight">Red Team</span>,
-                <span class="highlight">White Team</span>
-              </td>
-            </tr>
-
-          </tbody>
-        </table>
-
-        <!-- Minh họa trang trí: họa tiết tổ ong, biểu tượng ong và dòng giới thiệu. -->
-        <aside class="intro-art" aria-label="Bee Swarm Simulator: thu thập phấn, nuôi ong và tạo mật ong">
-          <!-- Các ô span được CSS sắp xếp thành họa tiết lục giác. -->
-          <div class="intro-honeycomb" aria-hidden="true">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+  <main class="container home-main">
+    <section class="hero-section" aria-labelledby="home-title">
+      <div class="hero-card">
+        <div class="hero-top-ribbon">
+          <div class="event-badge">
+            <span class="sparkle" aria-hidden="true">✨</span>
+            <span>BEE SWARM FIELD GUIDE • HONEYFIELD QUEST</span>
           </div>
-          <!-- Biểu tượng và nội dung trang trí; chỉnh chữ trực tiếp tại đây. -->
-          <span class="intro-bee" aria-hidden="true">🐝</span>
-          <p class="intro-art-title">BEE SWARM</p>
-          <p class="intro-art-caption">Thu thập phấn · Nuôi ong · Tạo mật</p>
-        </aside>
+          <a class="hero-link" href="items.html">Khám phá vật phẩm <span aria-hidden="true">➔</span></a>
+        </div>
+
+        <div class="hero-layout">
+          <div class="hero-left">
+            <h1 class="hero-title" id="home-title">Bee Swarm Simulator</h1>
+            <p class="hero-desc">
+              Thu thập phấn, quản lý đàn ong và chọn chiến lược đội hình để
+              tăng tốc hành trình tạo mật ong.
+            </p>
+            <div class="btn-group">
+              <a class="btn-game-arcade btn-primary-3d"
+                href="https://www.roblox.com/games/1537690962/Bee-Swarm-Simulator" target="_blank"
+                rel="noopener noreferrer">
+                <span>⚡ Vào game Roblox ↗</span>
+              </a>
+              <a class="btn-game-arcade btn-secondary-3d" href="blue.html">
+                <span>🛡️ Xem đội hình</span>
+              </a>
+            </div>
+            <div class="hero-stats" aria-label="Thông tin nhanh">
+              <div class="stat-card-rpg">
+                <strong>3</strong>
+                <span>Đội hình</span>
+              </div>
+              <div class="stat-card-rpg">
+                <strong>100+</strong>
+                <span>Vật phẩm</span>
+              </div>
+              <div class="stat-card-rpg">
+                <strong>Roblox</strong>
+                <span>Nền tảng</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-mid">
+            <div class="info-table-card">
+              <div class="info-table-header">
+                <span aria-hidden="true">📜</span> Thông tin Bee Swarm
+              </div>
+              <table class="info-table">
+                <tbody>
+                  <tr>
+                    <th scope="row">Tên game</th>
+                    <td>
+                      <a href="https://www.roblox.com/games/1537690962/Bee-Swarm-Simulator" target="_blank"
+                        rel="noopener noreferrer">Bee Swarm Simulator ↗</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Nền tảng</th>
+                    <td>Roblox</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Lối chơi</th>
+                    <td>Thu thập phấn, tạo mật ong, xây dựng đội ong</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Đội hình</th>
+                    <td class="team-badges">
+                      <a href="blue.html" class="highlight-badge badge-blue">Blue</a>
+                      <a href="red.html" class="highlight-badge badge-red">Red</a>
+                      <a href="white.html" class="highlight-badge badge-white">White</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="hero-right">
+            <div class="bee-art-box">
+              <div class="hex-glow-backdrop" aria-hidden="true"></div>
+              <div class="bee-avatar" aria-label="Chú ong">🐝</div>
+              <div class="bee-tagline">HONEY COMB MATRIX</div>
+              <div class="bee-subline">
+                Hút phấn · Nuôi ong · Tích trữ mật
+              </div>
+              <div class="pet-stats-pills" aria-label="Hành trình trong game">
+                <span class="pet-pill">🌼 Thu thập phấn</span>
+                <span class="pet-pill">🐝 Xây dựng tổ ong</span>
+                <span class="pet-pill">🍯 Tạo mật ong</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="card home-items" aria-labelledby="home-items-title">
-      <div class="section-heading">
-        <h2 id="home-items-title">Vật Phẩm Trong Game</h2>
-        <a class="items-more-link" href="items.html">Xem tất cả vật phẩm</a>
-      </div>
-      <div class="item-grid" data-item-list aria-live="polite"></div>
+    <section class="features-grid" aria-label="Ưu điểm nổi bật">
+      <article class="feature-card">
+        <div class="feature-icon-box" aria-hidden="true">🌼</div>
+        <div class="feature-info">
+          <h2>Tối ưu tốc độ farm</h2>
+          <p>Chọn cánh đồng phù hợp để tối ưu tốc độ thu thập phấn.</p>
+        </div>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon-box" aria-hidden="true">🍯</div>
+        <div class="feature-info">
+          <h2>Tra cứu vật phẩm</h2>
+          <p>Tìm nhanh nguyên liệu, vật phẩm và trang bị trong game.</p>
+        </div>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon-box" aria-hidden="true">⚔️</div>
+        <div class="feature-info">
+          <h2>Chọn đội hình phù hợp</h2>
+          <p>Khám phá điểm khác biệt giữa Blue, Red và White Team.</p>
+        </div>
+      </article>
     </section>
 
-    <section class="table-3" aria-label="Khám phá các đội hình">
-
-      <a href="blue.html" class="card team blue">
-        <div class="card-content">
-          <h3>Blue Team</h3>
-          <p>Thu thập phấn xanh, farm ổn định</p>
-        </div>
-      </a>
-
-      <a href="red.html" class="card team red">
-        <div class="card-content">
-          <h3>Red Team</h3>
-          <p>Sát thương cao, farm nhanh</p>
-        </div>
-      </a>
-
-      <a href="white.html" class="card team white">
-        <div class="card-content">
-          <h3>White Team</h3>
-          <p>Cân bằng – linh hoạt mọi lối chơi</p>
-        </div>
-      </a>
-
+    <section class="section-wrap home-items" aria-labelledby="featured-items-heading">
+      <div class="section-header">
+        <h2 class="section-title" id="featured-items-heading">
+          Vật Phẩm Nổi Bật (Robux Store)
+        </h2>
+        <a class="view-all-link" href="items.html">Xem tất cả vật phẩm <span aria-hidden="true">➔</span></a>
+      </div>
+      <div class="products-grid item-grid" data-item-list aria-live="polite"></div>
     </section>
 
-
-    <section class="card home-video">
-      <h2>🎬 Video Giới Thiệu</h2>
-      <div class="video-frame">
-        <iframe
-          src="https://www.youtube.com/embed/6a9Qy8SG0HY?rel=0&playsinline=1"
-          title="Video giới thiệu Bee Swarm Simulator"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="origin"
-          loading="lazy"
-          allowfullscreen>
-        </iframe>
+    <section class="section-wrap" aria-labelledby="teams-heading">
+      <div class="section-header">
+        <h2 class="section-title" id="teams-heading">
+          Chọn Lối Chơi Đội Hình
+        </h2>
+        <span class="view-all-link">3 trường phái kinh điển</span>
       </div>
-      <a class="video-link" href="https://www.youtube.com/watch?v=6a9Qy8SG0HY" target="_blank" rel="noopener noreferrer">
-        Mở video trực tiếp trên YouTube
-      </a>
+      <div class="teams-grid">
+        <a class="team-card blue" href="blue.html">
+          <div>
+            <div class="team-header">
+              <span class="team-icon" aria-hidden="true">🌊</span>
+              <span class="team-pill">Phấn xanh</span>
+            </div>
+            <h3 class="team-title">Blue Team</h3>
+            <p class="team-desc">
+              Tập trung thu thập phấn xanh và farm ổn định.
+            </p>
+          </div>
+          <span class="team-footer-link">Khám phá Team Blue <span aria-hidden="true">➔</span></span>
+        </a>
+        <a class="team-card red" href="red.html">
+          <div>
+            <div class="team-header">
+              <span class="team-icon" aria-hidden="true">🔥</span>
+              <span class="team-pill">Sát thương</span>
+            </div>
+            <h3 class="team-title">Red Team</h3>
+            <p class="team-desc">
+              Lối chơi thiên về sát thương và tốc độ farm cao.
+            </p>
+          </div>
+          <span class="team-footer-link">Khám phá Team Red <span aria-hidden="true">➔</span></span>
+        </a>
+        <a class="team-card white" href="white.html">
+          <div>
+            <div class="team-header">
+              <span class="team-icon" aria-hidden="true">✨</span>
+              <span class="team-pill">Linh hoạt</span>
+            </div>
+            <h3 class="team-title">White Team</h3>
+            <p class="team-desc">
+              Đội hình cân bằng, linh hoạt với nhiều lối chơi.
+            </p>
+          </div>
+          <span class="team-footer-link">Khám phá Team White <span aria-hidden="true">➔</span></span>
+        </a>
+      </div>
+    </section>
+
+    <section class="video-card" aria-labelledby="intro-video-title">
+      <div class="section-header">
+        <h2 class="section-title" id="intro-video-title">
+          🎬 Video Giới Thiệu
+        </h2>
+      </div>
+      <p class="video-description">
+        Xem video giới thiệu lối chơi trong Bee Swarm Simulator.
+      </p>
+      <div class="arcade-screen-frame">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/6a9Qy8SG0HY?rel=0&amp;playsinline=1"
+            title="Video giới thiệu Bee Swarm Simulator"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="origin" loading="lazy" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="video-action-wrap">
+        <a class="video-action-link" href="https://www.youtube.com/watch?v=6a9Qy8SG0HY" target="_blank"
+          rel="noopener noreferrer">Mở video trực tiếp trên YouTube ↗</a>
+      </div>
     </section>
   </main>
 
-
   <footer class="site-footer">
-    <div class="container footer-flex">
-      <div class="footer-info">
-        <p>© Nguyễn Minh Tiến</p>
-        <p>633 Lê Trọng Tấn, Q. Bình Tân</p>
-        <p>Phổ thông Cao đẳng FPT Polytechnic cơ sở Bình Tân</p>
-        <p>Cơ sở 2 tại TP.HCM</p>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <h2>Bee Swarm Simulator Wiki</h2>
+          <p>© Nguyễn Minh Tiến</p>
+          <p>633 Lê Trọng Tấn, Q. Bình Tân</p>
+          <p>Phổ thông Cao đẳng FPT Polytechnic cơ sở Bình Tân, TP.HCM</p>
+          <p class="footer-note">
+            Dự án phục vụ học tập và cộng đồng người chơi.
+          </p>
+        </div>
+        <div class="footer-links-col">
+          <h3>Liên kết nhanh</h3>
+          <ul class="footer-links-list">
+            <li><a href="items.html">Tra cứu vật phẩm</a></li>
+            <li><a href="bees.html">Bách khoa ong</a></li>
+            <li><a href="blue.html">Cẩm nang Blue Team</a></li>
+            <li><a href="red.html">Cẩm nang Red Team</a></li>
+            <li><a href="white.html">Cẩm nang White Team</a></li>
+          </ul>
+        </div>
+        <div class="footer-map-box">
+          <h3>Bản đồ trường</h3>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d529.0896616432318!2d106.60528449733806!3d10.813932058902806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752b953efb20ef%3A0x41ed21a46cbdc6c!2zRlBUIFBvbHlTY2hvb2wgLSBDxqEgc-G7nyBCw6xuaCBUw6Ju!5e0!3m2!1svi!2s!4v1769408605246!5m2!1svi!2s"
+            title="Bản đồ FPT Polytechnic cơ sở Bình Tân" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
       </div>
-      <div class="footer-map">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d529.0896616432318!2d106.60528449733806!3d10.813932058902806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752b953efb20ef%3A0x41ed21a46cbdc6c!2zRlBUIFBvbHlTY2hvb2wgLSBDxqEgc-G7nyBCw6xuaCBUw6Ju!5e0!3m2!1svi!2s!4v1769408605246!5m2!1svi!2s"
-          width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+      <div class="footer-bottom">
+        <span>Bee Swarm Simulator Wiki · Server Status: ONLINE 🟢</span>
+        <span>Game-inspired interface for the Bee Swarm community.</span>
       </div>
-
     </div>
   </footer>
 

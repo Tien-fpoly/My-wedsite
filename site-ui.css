@@ -1,0 +1,1246 @@
+.game-ui-page {
+  --ui-gold: #fbbf24;
+  --ui-gold-light: #fde047;
+  --ui-gold-dark: #92400e;
+  --ui-blue: #38bdf8;
+  --ui-panel: #111b2c;
+  min-height: 100vh;
+  color: #e2e8f0 !important;
+  background-color: #070c14;
+  background-image:
+    radial-gradient(
+      circle at 10% 20%,
+      rgba(245, 158, 11, 0.14),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(56, 189, 248, 0.11),
+      transparent 40%
+    ),
+    linear-gradient(rgba(15, 23, 42, 0.88), rgba(8, 12, 20, 0.94));
+  background-attachment: fixed;
+}
+
+body.game-ui-page:not(.home-page) {
+  background-color: #070c14 !important;
+  background-image:
+    radial-gradient(
+      circle at 10% 20%,
+      rgba(245, 158, 11, 0.14),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(56, 189, 248, 0.11),
+      transparent 40%
+    ),
+    linear-gradient(rgba(15, 23, 42, 0.88), rgba(8, 12, 20, 0.94)),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='96' viewBox='0 0 84 96'%3E%3Cg fill='none' stroke='%23fbbf24' stroke-width='1' stroke-opacity='.13'%3E%3Cpath d='M21 2 41 13.5v23L21 48 1 36.5v-23zM63 2l20 11.5v23L63 48 43 36.5v-23zM42 38l20 11.5v23L42 84 22 72.5v-23zM21 74l20 11.5v23L21 120 1 108.5v-23zM63 74l20 11.5v23L63 120l-20-11.5v-23z'/%3E%3C/g%3E%3C/svg%3E") !important;
+  background-attachment: fixed !important;
+}
+
+.game-ui-page .pollen-particles {
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.game-ui-page .pollen {
+  position: absolute;
+  top: 100%;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #fde047;
+  box-shadow:
+    0 0 10px #f59e0b,
+    0 0 20px #fde047;
+  opacity: 0;
+  animation: ui-pollen-rise 18s linear infinite;
+}
+
+.game-ui-page .pollen:nth-child(1) {
+  left: 8%;
+  animation-duration: 16s;
+}
+.game-ui-page .pollen:nth-child(2) {
+  left: 27%;
+  width: 5px;
+  height: 5px;
+  animation-delay: 3s;
+}
+.game-ui-page .pollen:nth-child(3) {
+  left: 49%;
+  animation-duration: 21s;
+  animation-delay: 7s;
+}
+.game-ui-page .pollen:nth-child(4) {
+  left: 72%;
+  width: 9px;
+  height: 9px;
+  animation-delay: 1s;
+}
+.game-ui-page .pollen:nth-child(5) {
+  left: 91%;
+  animation-duration: 19s;
+  animation-delay: 5s;
+}
+
+@keyframes ui-pollen-rise {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.55;
+  }
+  50% {
+    transform: translate3d(22px, -55vh, 0);
+    opacity: 0.45;
+  }
+  100% {
+    transform: translate3d(-14px, -110vh, 0);
+    opacity: 0;
+  }
+}
+
+.game-ui-page .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  isolation: isolate;
+  overflow: visible;
+  font-size: 16px;
+  line-height: 1.6;
+  border-bottom: 4px solid #d97706;
+  background: linear-gradient(
+    180deg,
+    rgba(14, 23, 38, 0.97),
+    rgba(9, 14, 24, 0.98)
+  );
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.55),
+    inset 0 2px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-bottom: 4px solid #d97706 !important;
+  background: linear-gradient(
+    180deg,
+    rgba(14, 23, 38, 0.97),
+    rgba(9, 14, 24, 0.98)
+  ) !important;
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.55),
+    inset 0 2px rgba(255, 255, 255, 0.1) !important;
+}
+
+.game-ui-page .site-header *,
+.game-ui-page .site-header *::before,
+.game-ui-page .site-header *::after {
+  box-sizing: border-box;
+}
+
+.game-ui-page .site-header:hover {
+  border-bottom: 4px solid #d97706 !important;
+  background: linear-gradient(
+    180deg,
+    rgba(14, 23, 38, 0.97),
+    rgba(9, 14, 24, 0.98)
+  ) !important;
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.55),
+    inset 0 2px rgba(255, 255, 255, 0.1) !important;
+}
+
+.game-ui-page .header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: visible;
+  gap: 1rem;
+  width: min(94%, 1220px);
+  padding: 0.65rem 0;
+}
+
+.game-ui-page .brand-link {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 0.75rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+.game-ui-page .brand-badge {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  flex: 0 0 auto;
+  place-items: center;
+  overflow: hidden;
+  border: 3px solid #fef08a;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #fde047, #f59e0b 58%, #b45309);
+  box-shadow:
+    0 4px 0 #78350f,
+    0 7px 16px rgba(245, 158, 11, 0.3);
+}
+
+.game-ui-page .brand-badge img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.game-ui-page .brand-title-wrap {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.game-ui-page .brand-title {
+  color: #fff;
+  font:
+    800 1.1rem/1.15 "Fredoka",
+    "Space Grotesk",
+    sans-serif;
+  text-shadow: 0 0 12px rgba(245, 158, 11, 0.35);
+}
+
+.game-ui-page .brand-tag {
+  color: #fde047;
+  font:
+    800 0.62rem/1.35 "Plus Jakarta Sans",
+    sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.game-ui-page .main-nav {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: visible;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.game-ui-page .nav-dropdown + .nav-item {
+  margin-left: auto;
+}
+
+.game-ui-page .main-nav .nav-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  min-height: 42px;
+  padding: 0.45rem 0.75rem;
+  border: 2px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 10px;
+  background: rgba(30, 41, 59, 0.72) !important;
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.12),
+    0 3px 0 rgba(0, 0, 0, 0.35);
+  color: #e2e8f0 !important;
+  font:
+    700 0.82rem/1.2 "Plus Jakarta Sans",
+    sans-serif;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    transform 150ms ease,
+    background 150ms ease,
+    border-color 150ms ease;
+}
+
+.game-ui-page .main-nav .nav-item::after {
+  display: none !important;
+}
+
+.game-ui-page .main-nav .nav-item:hover,
+.game-ui-page .main-nav .nav-item.active,
+.game-ui-page .nav-dropdown.is-current > .nav-item {
+  transform: translateY(-1px);
+  border-color: #f59e0b !important;
+  background: #293348 !important;
+  color: #fde047 !important;
+}
+
+.game-ui-page .nav-dropdown {
+  position: relative;
+  z-index: 1;
+}
+
+.game-ui-page .nav-dropdown::after {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 0.55rem;
+  content: "";
+}
+
+.home-page .nav-dropdown::after {
+  height: 0.2rem;
+}
+
+.game-ui-page .nav-dropdown:hover,
+.game-ui-page .nav-dropdown:focus-within {
+  z-index: 1002;
+}
+
+.game-ui-page .nav-dropdown-toggle {
+  cursor: pointer;
+}
+
+.game-ui-page .nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  z-index: 1001;
+  display: none;
+  min-width: 190px;
+  padding: 0.4rem;
+  border: 2px solid #d97706 !important;
+  border-radius: 12px !important;
+  background: linear-gradient(180deg, #1e293b, #0f172a) !important;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.6) !important;
+}
+
+.home-page .nav-dropdown-menu {
+  top: calc(100% + 0.15rem);
+  margin-top: 0;
+}
+
+.game-ui-page .nav-dropdown:hover .nav-dropdown-menu,
+.game-ui-page .nav-dropdown:focus-within .nav-dropdown-menu {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.game-ui-page .nav-dropdown-menu a {
+  display: block;
+  padding: 0.6rem 0.7rem;
+  border: 1px solid transparent !important;
+  border-radius: 7px !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  color: #e2e8f0 !important;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.game-ui-page .nav-dropdown-menu a:hover,
+.game-ui-page .nav-dropdown-menu a.active {
+  border-color: rgba(245, 158, 11, 0.55) !important;
+  background: rgba(245, 158, 11, 0.15) !important;
+  color: #fde047 !important;
+}
+
+.game-ui-page .nav-dropdown-menu a::after {
+  display: none !important;
+}
+
+.game-ui-page .main-nav .nav-cart-btn {
+  min-height: 0;
+  padding: 0.55rem 0.85rem;
+  border-color: #fef08a !important;
+  border-radius: 12px !important;
+  background: linear-gradient(180deg, #fbbf24, #f59e0b 55%, #b45309) !important;
+  box-shadow:
+    0 4px 0 #78350f,
+    0 8px 16px rgba(245, 158, 11, 0.25);
+  color: #1a1001 !important;
+  font:
+    800 0.92rem/1.6 "Fredoka",
+    "Space Grotesk",
+    sans-serif;
+}
+
+.game-ui-page .main-nav .nav-cart-btn:hover,
+.game-ui-page .main-nav .nav-cart-btn.active {
+  border-color: #fff7ae !important;
+  background: linear-gradient(180deg, #fef08a, #fbbf24 55%, #d97706) !important;
+  color: #1a1001 !important;
+}
+
+.game-ui-page .cart-badge {
+  display: none;
+  min-width: 20px;
+  height: 20px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5px;
+  border: 2px solid #fff;
+  border-radius: 999px;
+  background: #dc2626;
+  color: #fff;
+  font:
+    800 0.72rem/1 "JetBrains Mono",
+    monospace;
+}
+
+.game-ui-page .site-footer {
+  position: relative;
+  z-index: 1;
+  margin-top: 3rem;
+  padding: 2.5rem 0 1.25rem;
+  border-top: 4px solid #b45309;
+  background: #05080e;
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.42);
+  color: #94a3b8;
+  border-top: 4px solid #b45309 !important;
+  background: #05080e !important;
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.42) !important;
+}
+
+.game-ui-page .footer-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.8fr 1fr;
+  gap: 2rem;
+  width: min(94%, 1220px);
+  margin: 0 auto 2rem;
+}
+
+.game-ui-page .site-footer > .container {
+  display: block;
+  width: min(94%, 1220px);
+  margin: 0 auto;
+}
+
+.game-ui-page .site-footer > .container .footer-grid,
+.game-ui-page .site-footer > .container .footer-bottom {
+  width: 100%;
+}
+
+.game-ui-page .footer-about h2,
+.game-ui-page .footer-links-col h3,
+.game-ui-page .footer-map-box h3 {
+  margin: 0 0 0.75rem;
+  color: #fff;
+  font:
+    800 1rem/1.3 "Fredoka",
+    "Space Grotesk",
+    sans-serif;
+}
+
+.game-ui-page .footer-about p {
+  margin: 0.35rem 0;
+  color: #94a3b8;
+  font-size: 0.85rem;
+}
+
+.game-ui-page .footer-note {
+  color: #64748b !important;
+}
+
+.game-ui-page .footer-links-list {
+  display: grid;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.game-ui-page .footer-links-list a {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition:
+    color 150ms ease,
+    transform 150ms ease;
+}
+
+.game-ui-page .footer-links-list a:hover {
+  transform: translateX(3px);
+  color: #38bdf8;
+}
+
+.game-ui-page .footer-map-box iframe {
+  display: block;
+  width: 100%;
+  height: 155px;
+  border: 3px solid #334155;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.game-ui-page .footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: min(94%, 1220px);
+  margin: 0 auto;
+  padding-top: 1rem;
+  border-top: 2px dashed rgba(255, 255, 255, 0.1);
+  color: #64748b;
+  font-size: 0.76rem;
+}
+
+.game-ui-page :focus-visible {
+  outline: 3px solid #fde047;
+  outline-offset: 3px;
+}
+
+@media (max-width: 920px) {
+  .game-ui-page .header-inner {
+    flex-direction: column;
+  }
+
+  .game-ui-page .main-nav {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 680px) {
+  .game-ui-page .main-nav {
+    gap: 0.3rem;
+  }
+
+  .game-ui-page .main-nav .nav-item {
+    min-height: 38px;
+    padding: 0.4rem 0.55rem;
+    font-size: 0.75rem;
+  }
+
+  .game-ui-page .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
+  }
+
+  .game-ui-page .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .game-ui-page .pollen,
+  .game-ui-page .main-nav *,
+  .game-ui-page .footer-links-list a {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+.game-ui-page:not(.home-page) {
+  font-family: "Plus Jakarta Sans", "Inter", sans-serif !important;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #e2e8f0 !important;
+}
+
+.game-ui-page:not(.home-page) h1,
+.game-ui-page:not(.home-page) h2,
+.game-ui-page:not(.home-page) h3,
+.game-ui-page:not(.home-page) h4,
+.game-ui-page:not(.home-page) button,
+.game-ui-page:not(.home-page) .primary-btn,
+.game-ui-page:not(.home-page) .secondary-btn {
+  font-family: "Fredoka", "Space Grotesk", sans-serif;
+}
+
+.game-ui-page:not(.home-page) main {
+  position: relative;
+  z-index: 1;
+  width: min(94%, 1220px);
+  margin-right: auto;
+  margin-left: auto;
+  line-height: 1.55;
+}
+
+.game-ui-page:not(.home-page) main .container {
+  width: 100%;
+  max-width: none;
+}
+
+.game-ui-page:not(.home-page) main h2 {
+  color: #fff !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.55);
+}
+
+.game-ui-page:not(.home-page) main h3,
+.game-ui-page:not(.home-page) main h4 {
+  color: #f8fafc !important;
+}
+
+.game-ui-page:not(.home-page) main > .container > :first-child {
+  margin-top: 0;
+}
+
+.game-ui-page:not(.home-page) main p {
+  line-height: 1.55;
+}
+
+.game-ui-page:not(.home-page) .items-section,
+.game-ui-page:not(.home-page) .bees-section,
+.game-ui-page:not(.home-page) .team-page-section {
+  padding-top: 0.75rem;
+}
+
+.game-ui-page:not(.home-page) .section-title-wrap {
+  margin: 0 0 0.65rem !important;
+}
+
+.game-ui-page:not(.home-page) .items-section h2,
+.game-ui-page:not(.home-page) .bees-section h2 {
+  margin-bottom: 0.55rem;
+  color: #fde047 !important;
+  font-size: clamp(1.7rem, 2.5vw, 2.3rem);
+  text-shadow:
+    0 2px 0 #78350f,
+    0 5px 16px rgba(245, 158, 11, 0.25);
+}
+
+.game-ui-page:not(.home-page) .items-section h2::after,
+.game-ui-page:not(.home-page) .bees-section h2::after {
+  height: 4px;
+  background: linear-gradient(90deg, #f59e0b, #fde047, transparent) !important;
+}
+
+.game-ui-page:not(.home-page) .items-page-intro,
+.game-ui-page:not(.home-page) .section-subtitle,
+.game-ui-page:not(.home-page) .team-header-box p,
+.game-ui-page:not(.home-page) .cart-page-desc,
+.game-ui-page:not(.home-page) .auth-description,
+.game-ui-page:not(.home-page) .item-detail-content > p {
+  color: #aebed1 !important;
+}
+
+.game-ui-page:not(.home-page) .items-page-intro,
+.game-ui-page:not(.home-page) .section-subtitle {
+  margin: 0 0 0.75rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.game-ui-page:not(.home-page) .items-filter-bar,
+.game-ui-page:not(.home-page) .team-header-box,
+.game-ui-page:not(.home-page) .blue-table-section,
+.game-ui-page:not(.home-page) .red-table-section,
+.game-ui-page:not(.home-page) .white-table-section,
+.game-ui-page:not(.home-page) .items-table,
+.game-ui-page:not(.home-page) .blue-table,
+.game-ui-page:not(.home-page) .red-table,
+.game-ui-page:not(.home-page) .white-table,
+.game-ui-page:not(.home-page) .item-detail-card,
+.game-ui-page:not(.home-page) .auth-card,
+.game-ui-page:not(.home-page) .cart-items-card,
+.game-ui-page:not(.home-page) .checkout-card,
+.game-ui-page:not(.home-page) .receipt-card-wrapper,
+.game-ui-page:not(.home-page) .cart-empty-box {
+  position: relative;
+  overflow: hidden;
+  border: 3px solid #334155 !important;
+  border-radius: 18px !important;
+  background: linear-gradient(
+    180deg,
+    rgba(22, 34, 56, 0.98),
+    rgba(11, 19, 34, 0.98)
+  ) !important;
+  box-shadow:
+    0 7px 0 rgba(15, 23, 42, 0.95),
+    0 15px 30px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
+  color: #e2e8f0 !important;
+}
+
+.game-ui-page:not(.home-page) .items-filter-bar::after,
+.game-ui-page:not(.home-page) .team-header-box::after,
+.game-ui-page:not(.home-page) .blue-table-section::after,
+.game-ui-page:not(.home-page) .red-table-section::after,
+.game-ui-page:not(.home-page) .white-table-section::after,
+.game-ui-page:not(.home-page) .item-detail-card::after,
+.game-ui-page:not(.home-page) .auth-card::after,
+.game-ui-page:not(.home-page) .cart-items-card::after,
+.game-ui-page:not(.home-page) .checkout-card::after,
+.game-ui-page:not(.home-page) .receipt-card-wrapper::after,
+.game-ui-page:not(.home-page) .cart-empty-box::after {
+  position: absolute;
+  top: 0.35rem;
+  right: 0.35rem;
+  z-index: 0;
+  width: 112px;
+  height: 100px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='96' viewBox='0 0 84 96'%3E%3Cg fill='none' stroke='%23fbbf24' stroke-width='1.5' stroke-opacity='.65'%3E%3Cpath d='M21 2 41 13.5v23L21 48 1 36.5v-23zM63 2l20 11.5v23L63 48 43 36.5v-23zM42 38l20 11.5v23L42 84 22 72.5v-23zM21 74l20 11.5v23L21 120 1 108.5v-23zM63 74l20 11.5v23L63 120l-20-11.5v-23z'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 56px 64px;
+  content: "";
+  opacity: 0.16;
+  pointer-events: none;
+  mask-image: linear-gradient(135deg, #000, transparent 85%);
+}
+
+.game-ui-page:not(.home-page) .items-filter-bar > *,
+.game-ui-page:not(.home-page) .team-header-box > *,
+.game-ui-page:not(.home-page) .blue-table-section > *,
+.game-ui-page:not(.home-page) .red-table-section > *,
+.game-ui-page:not(.home-page) .white-table-section > *,
+.game-ui-page:not(.home-page) .item-detail-card > *,
+.game-ui-page:not(.home-page) .auth-card > *,
+.game-ui-page:not(.home-page) .cart-items-card > *,
+.game-ui-page:not(.home-page) .checkout-card > *,
+.game-ui-page:not(.home-page) .receipt-card-wrapper > *,
+.game-ui-page:not(.home-page) .cart-empty-box > * {
+  position: relative;
+  z-index: 1;
+}
+
+.game-ui-page:not(.home-page) .items-filter-bar {
+  margin-top: 0.65rem;
+  padding: clamp(0.75rem, 1.8vw, 1rem);
+  border-color: #475569 !important;
+}
+
+.game-ui-page:not(.home-page) .search-input-wrapper input,
+.game-ui-page:not(.home-page) .input-icon-wrap input,
+.game-ui-page:not(.home-page) .input-icon-wrap select,
+.game-ui-page:not(.home-page) .form-field textarea,
+.game-ui-page:not(.home-page) .auth-field input {
+  border: 2px solid #334155 !important;
+  border-radius: 10px !important;
+  background: #0a1120 !important;
+  color: #f1f5f9 !important;
+}
+
+.game-ui-page:not(.home-page) .search-input-wrapper input:focus,
+.game-ui-page:not(.home-page) .input-icon-wrap input:focus,
+.game-ui-page:not(.home-page) .input-icon-wrap select:focus,
+.game-ui-page:not(.home-page) .form-field textarea:focus,
+.game-ui-page:not(.home-page) .auth-field input:focus {
+  border-color: #38bdf8 !important;
+  box-shadow:
+    0 0 0 3px rgba(56, 189, 248, 0.15),
+    0 0 14px rgba(56, 189, 248, 0.12) !important;
+}
+
+.game-ui-page:not(.home-page) .search-input-wrapper input::placeholder,
+.game-ui-page:not(.home-page) .input-icon-wrap input::placeholder,
+.game-ui-page:not(.home-page) .form-field textarea::placeholder,
+.game-ui-page:not(.home-page) .auth-field input::placeholder {
+  color: #8493a8 !important;
+}
+
+.game-ui-page:not(.home-page) .item-filter-tab {
+  border: 2px solid #334155 !important;
+  border-radius: 9px !important;
+  background: #172338 !important;
+  color: #cbd5e1 !important;
+}
+
+.game-ui-page:not(.home-page) .item-filter-tab:hover,
+.game-ui-page:not(.home-page) .item-filter-tab.active {
+  border-color: #38bdf8 !important;
+  background: linear-gradient(180deg, #0369a1, #0c4a6e) !important;
+  color: #fff !important;
+}
+
+.game-ui-page:not(.home-page) .items-meta-count {
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: #94a3b8 !important;
+}
+
+.game-ui-page:not(.home-page) .item-grid {
+  width: 100%;
+  min-width: 0;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, 235px), 1fr)
+  ) !important;
+  justify-content: stretch !important;
+  gap: 1rem !important;
+}
+
+.game-ui-page:not(.home-page) .item-card {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  width: 100% !important;
+  max-width: none !important;
+  padding: 1rem;
+  border: 3px solid #f59e0b !important;
+  border-radius: 20px !important;
+  background: linear-gradient(180deg, #172338, #0d1626) !important;
+  box-shadow:
+    0 5px 0 #78350f,
+    0 12px 24px rgba(0, 0, 0, 0.4) !important;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.game-ui-page:not(.home-page) .item-grid.is-filtered .item-card {
+  max-width: 292px !important;
+}
+
+.game-ui-page:not(.home-page) .item-card::before {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(#fff 1px, transparent 1px);
+  background-size: 14px 14px;
+  content: "";
+  opacity: 0.07;
+  pointer-events: none;
+}
+
+.game-ui-page:not(.home-page) .item-card:hover {
+  transform: translateY(-5px);
+  border-color: #fbbf24 !important;
+  box-shadow:
+    0 9px 0 #78350f,
+    0 18px 32px rgba(245, 158, 11, 0.22) !important;
+}
+
+.game-ui-page:not(.home-page) .item-card-link,
+.game-ui-page:not(.home-page) .item-card-tags,
+.game-ui-page:not(.home-page) .item-card-bottom-bar {
+  position: relative;
+  z-index: 1;
+}
+
+.game-ui-page:not(.home-page) .item-card img {
+  width: 100%;
+  height: 145px;
+  margin-bottom: 0.7rem;
+  padding: 0.45rem;
+  border: 2px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 12px;
+  background: radial-gradient(circle, #1e293b, #030712) !important;
+  object-fit: contain;
+}
+
+.game-ui-page:not(.home-page) .item-card h3 {
+  margin: 0 0 0.25rem;
+  color: #fff !important;
+  font:
+    700 1.1rem/1.25 "Fredoka",
+    sans-serif;
+}
+
+.game-ui-page:not(.home-page) .item-card-type,
+.game-ui-page:not(.home-page) .item-card-usage {
+  color: #94a3b8 !important;
+}
+
+.game-ui-page:not(.home-page) .item-card-type {
+  color: #7dd3fc !important;
+  margin: 0 0 0.3rem;
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.game-ui-page:not(.home-page) .item-card-usage {
+  min-height: 0;
+  margin: 0 0 0.55rem;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.game-ui-page:not(.home-page) .item-card-tags {
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.game-ui-page:not(.home-page) .tag-pill {
+  padding: 0.12rem 0.4rem;
+  font-size: 0.68rem;
+}
+
+.game-ui-page:not(.home-page) .tag-pill {
+  border: 1px solid rgba(255, 255, 255, 0.13) !important;
+  border-radius: 6px !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  color: #aebed1 !important;
+}
+
+.game-ui-page:not(.home-page) .item-card-bottom-bar {
+  border-top: 2px dashed rgba(148, 163, 184, 0.25);
+}
+
+.game-ui-page:not(.home-page) .item-card-bottom-bar:not(.info-only-bottom) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding-top: 0.65rem;
+}
+
+.game-ui-page:not(.home-page) .item-card-action-btns {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.15rem;
+}
+
+.game-ui-page:not(.home-page) .item-card-robux {
+  flex: 0 0 auto;
+  gap: 0.25rem;
+  margin-bottom: 0;
+  padding: 0.3rem 0.5rem;
+  border-color: #10b981 !important;
+  border-radius: 9px !important;
+  background: #020617 !important;
+  color: #34d399 !important;
+}
+
+.game-ui-page:not(.home-page) .robux-symbol {
+  font-size: 0.9rem;
+}
+
+.game-ui-page:not(.home-page) .robux-val {
+  font-size: 1rem;
+}
+
+.game-ui-page:not(.home-page) .robux-unit {
+  font-size: 0.68rem;
+}
+
+.game-ui-page:not(.home-page) .robux-symbol,
+.game-ui-page:not(.home-page) .robux-val {
+  color: #34d399 !important;
+}
+
+.game-ui-page:not(.home-page) .btn-add-to-cart,
+.game-ui-page:not(.home-page) .btn-view-info-only {
+  border: 2px solid #93c5fd !important;
+  border-radius: 9px !important;
+  background: linear-gradient(180deg, #3b82f6, #1d4ed8) !important;
+  box-shadow: 0 4px 0 #1e3a8a !important;
+  color: #fff !important;
+  font:
+    700 0.78rem/1.2 "Fredoka",
+    sans-serif;
+}
+
+.game-ui-page:not(.home-page) .item-card-action-btns .btn-add-to-cart {
+  flex: 0 0 auto;
+}
+
+.game-ui-page:not(.home-page) .item-card-more {
+  padding: 0.2rem 0.25rem;
+  font-size: 0.74rem;
+}
+
+.game-ui-page:not(.home-page) .item-detail-page {
+  width: min(94%, 1000px);
+  margin-top: 0.9rem;
+  margin-bottom: 1.75rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0;
+}
+
+.game-ui-page:not(.home-page) #detail-top-back-link {
+  margin-bottom: 0.75rem !important;
+}
+
+.game-ui-page:not(.home-page) .item-detail-card {
+  padding: clamp(1.2rem, 3vw, 2rem);
+  border-color: #475569 !important;
+}
+
+.game-ui-page:not(.home-page) .item-detail-image {
+  border: 3px solid #334155;
+  background: radial-gradient(circle, #1e293b, #030712) !important;
+}
+
+.game-ui-page:not(.home-page) .item-detail-content h2 {
+  color: #fde047 !important;
+  font:
+    700 clamp(1.7rem, 4vw, 2.4rem) / 1.2 "Fredoka",
+    sans-serif;
+}
+
+.game-ui-page:not(.home-page) .item-detail-content h3 {
+  margin-top: 1.1rem;
+  color: #7dd3fc !important;
+}
+
+.game-ui-page:not(.home-page) .team-header-box {
+  margin: 0.65rem 0 1rem !important;
+  padding: clamp(0.9rem, 2.2vw, 1.3rem) !important;
+  border-color: #b45309 !important;
+  box-shadow:
+    0 7px 0 #451a03,
+    0 18px 35px rgba(0, 0, 0, 0.4),
+    inset 0 1px rgba(255, 255, 255, 0.12) !important;
+}
+
+.game-ui-page:not(.home-page) .team-header-box h2 {
+  margin-bottom: 0.4rem;
+  font:
+    700 clamp(1.4rem, 2.8vw, 1.9rem) / 1.2 "Fredoka",
+    sans-serif;
+}
+
+.game-ui-page:not(.home-page) .team-header-box p {
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+.game-ui-page:not(.home-page)
+  .team-page-section:has(.blue-title)
+  .team-header-box {
+  border-color: #0284c7 !important;
+  box-shadow:
+    0 7px 0 #0c4a6e,
+    0 18px 35px rgba(2, 132, 199, 0.18) !important;
+}
+
+.game-ui-page:not(.home-page)
+  .team-page-section:has(.red-title)
+  .team-header-box {
+  border-color: #b91c1c !important;
+  box-shadow:
+    0 7px 0 #7f1d1d,
+    0 18px 35px rgba(220, 38, 38, 0.16) !important;
+}
+
+.game-ui-page:not(.home-page)
+  .team-page-section:has(.white-title)
+  .team-header-box {
+  border-color: #cbd5e1 !important;
+  box-shadow:
+    0 7px 0 #475569,
+    0 18px 35px rgba(203, 213, 225, 0.12) !important;
+}
+
+.game-ui-page:not(.home-page) .team-subtitle {
+  margin: 0.7rem 0 0.45rem !important;
+  color: #fde047 !important;
+  font:
+    700 1.12rem/1.3 "Fredoka",
+    sans-serif !important;
+}
+
+.game-ui-page:not(.home-page) .blue-table-section,
+.game-ui-page:not(.home-page) .red-table-section,
+.game-ui-page:not(.home-page) .white-table-section {
+  margin: 1rem auto;
+  padding: clamp(0.75rem, 1.8vw, 1.15rem);
+}
+
+.game-ui-page:not(.home-page) .team-block {
+  margin-bottom: 1rem !important;
+}
+
+.game-ui-page:not(.home-page) .blue-table,
+.game-ui-page:not(.home-page) .red-table,
+.game-ui-page:not(.home-page) .white-table {
+  border: 2px solid #334155 !important;
+  border-radius: 12px !important;
+  background: rgba(10, 17, 32, 0.92) !important;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.35) !important;
+}
+
+.game-ui-page:not(.home-page) .blue-table thead,
+.game-ui-page:not(.home-page) .red-table thead,
+.game-ui-page:not(.home-page) .white-table thead,
+.game-ui-page:not(.home-page) .blue-table thead th,
+.game-ui-page:not(.home-page) .red-table thead th,
+.game-ui-page:not(.home-page) .white-table thead th {
+  background: #1e293b !important;
+  color: #fde047 !important;
+}
+
+.game-ui-page:not(.home-page) .blue-table th,
+.game-ui-page:not(.home-page) .blue-table td,
+.game-ui-page:not(.home-page) .red-table th,
+.game-ui-page:not(.home-page) .red-table td,
+.game-ui-page:not(.home-page) .white-table th,
+.game-ui-page:not(.home-page) .white-table td {
+  border-color: rgba(148, 163, 184, 0.16) !important;
+}
+
+.game-ui-page:not(.home-page) .blue-table tbody tr,
+.game-ui-page:not(.home-page) .red-table tbody tr,
+.game-ui-page:not(.home-page) .white-table tbody tr {
+  background: rgba(255, 255, 255, 0.025) !important;
+}
+
+.game-ui-page:not(.home-page) .blue-table tbody tr:hover,
+.game-ui-page:not(.home-page) .red-table tbody tr:hover,
+.game-ui-page:not(.home-page) .white-table tbody tr:hover {
+  background: rgba(56, 189, 248, 0.1) !important;
+}
+
+.game-ui-page:not(.home-page) .blue-table td:first-child,
+.game-ui-page:not(.home-page) .red-table td:first-child,
+.game-ui-page:not(.home-page) .white-table td:first-child {
+  color: #7dd3fc !important;
+}
+
+.game-ui-page:not(.home-page) .auth-main {
+  position: relative;
+  z-index: 1;
+  min-height: auto;
+  padding: 1rem 1rem 1.35rem;
+}
+
+.game-ui-page:not(.home-page) .site-footer {
+  margin-top: 1.1rem;
+}
+
+.game-ui-page:not(.home-page) .auth-card {
+  padding: clamp(1.2rem, 3vw, 1.8rem);
+  border-color: #475569 !important;
+  border-radius: 20px !important;
+  background: linear-gradient(180deg, #172338, #0d1626) !important;
+  box-shadow:
+    0 8px 0 #0f172a,
+    0 20px 42px rgba(0, 0, 0, 0.45),
+    inset 0 1px rgba(255, 255, 255, 0.12) !important;
+  color: #e2e8f0 !important;
+}
+
+.game-ui-page:not(.home-page) .auth-eyebrow,
+.game-ui-page:not(.home-page) .auth-card h2 {
+  color: #fde047 !important;
+}
+
+.game-ui-page:not(.home-page) .auth-field label {
+  color: #d6e0ed !important;
+}
+
+.game-ui-page:not(.home-page) .auth-submit,
+.game-ui-page:not(.home-page) .btn-checkout-submit {
+  border: 2px solid #fef08a !important;
+  border-radius: 10px !important;
+  background: linear-gradient(180deg, #fbbf24, #d97706) !important;
+  box-shadow: 0 5px 0 #78350f !important;
+  color: #1a1001 !important;
+  font-family: "Fredoka", sans-serif !important;
+  font-weight: 700 !important;
+}
+
+.game-ui-page:not(.home-page) .auth-switch,
+.game-ui-page:not(.home-page) .auth-demo-note {
+  color: #aebed1 !important;
+}
+
+.game-ui-page:not(.home-page) .auth-switch a {
+  color: #7dd3fc !important;
+}
+
+.game-ui-page:not(.home-page) .auth-demo-note {
+  border-color: #334155 !important;
+  background: #0a1120 !important;
+}
+
+.game-ui-page:not(.home-page) .cart-page-section {
+  position: relative;
+  z-index: 1;
+  padding-top: 0.6rem;
+  padding-bottom: 1rem;
+}
+
+.game-ui-page:not(.home-page) .cart-page-header {
+  margin-bottom: 0.8rem;
+  text-align: center;
+}
+
+.game-ui-page:not(.home-page) .cart-page-header h2 {
+  margin-bottom: 0.4rem;
+  color: #fff !important;
+  font:
+    700 clamp(1.75rem, 3.5vw, 2.5rem) / 1.15 "Fredoka",
+    sans-serif;
+  text-shadow:
+    0 2px 0 #78350f,
+    0 6px 18px rgba(245, 158, 11, 0.22);
+}
+
+.game-ui-page:not(.home-page) .cart-eyebrow,
+.game-ui-page:not(.home-page) .cart-step.is-current {
+  color: #fde047 !important;
+}
+
+.game-ui-page:not(.home-page) .cart-step b {
+  border-color: #475569 !important;
+  background: #111c2d !important;
+  color: #cbd5e1 !important;
+}
+
+.game-ui-page:not(.home-page) .cart-step.is-current b {
+  border-color: #fbbf24 !important;
+  background: #713f12 !important;
+  color: #fde047 !important;
+}
+
+.game-ui-page:not(.home-page) .cart-card-header,
+.game-ui-page:not(.home-page) .checkout-card-header {
+  border-bottom-color: rgba(148, 163, 184, 0.2) !important;
+}
+
+.game-ui-page:not(.home-page) .cart-table th {
+  background: #1e293b !important;
+  color: #fde047 !important;
+}
+
+.game-ui-page:not(.home-page) .cart-table th,
+.game-ui-page:not(.home-page) .cart-table td {
+  border-color: rgba(148, 163, 184, 0.18) !important;
+}
+
+.game-ui-page:not(.home-page) .checkout-bill-summary {
+  border-color: #334155 !important;
+  background: #0a1120 !important;
+}
+
+.game-ui-page:not(.home-page) .checkout-guarantee {
+  border-color: rgba(251, 191, 36, 0.38) !important;
+  background: rgba(245, 158, 11, 0.1) !important;
+  color: #fde68a !important;
+}
+
+.game-ui-page:not(.home-page) .cart-page-desc {
+  margin-bottom: 0.8rem;
+  line-height: 1.5;
+}
+
+.game-ui-page:not(.home-page) .primary-btn,
+.game-ui-page:not(.home-page) .secondary-btn,
+.game-ui-page:not(.home-page) .btn-checkout-submit {
+  transition:
+    transform 150ms ease,
+    filter 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.game-ui-page:not(.home-page) .primary-btn:hover,
+.game-ui-page:not(.home-page) .secondary-btn:hover,
+.game-ui-page:not(.home-page) .btn-checkout-submit:hover,
+.game-ui-page:not(.home-page) .auth-submit:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+}
+
+@media (max-width: 700px) {
+  .game-ui-page:not(.home-page) .item-grid {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(100%, 235px), 1fr)
+    ) !important;
+  }
+
+  .game-ui-page:not(.home-page) .cart-step-list {
+    flex-wrap: wrap;
+    gap: 0.45rem;
+  }
+
+  .game-ui-page:not(.home-page) .item-card {
+    padding: 0.85rem;
+  }
+}

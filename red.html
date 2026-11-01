@@ -1,129 +1,115 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Red Team</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team Red - Bee Swarm Simulator</title>
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Catamaran:wght@400;700&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="ASMstyles.css">
-  <link rel="stylesheet" href="Red.css">
+    rel="stylesheet" />
+  <link rel="stylesheet" href="ASMstyles.css" />
+  <link rel="stylesheet" href="Red.css" />
+  <link rel="stylesheet" href="theme.css" />
+  <link rel="stylesheet" href="site-ui.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Space+Grotesk:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@700&display=swap"
+    rel="stylesheet" />
 </head>
 
-<body>
+<body class="game-ui-page">
+  <div class="pollen-particles" aria-hidden="true">
+    <span class="pollen"></span><span class="pollen"></span><span class="pollen"></span><span
+      class="pollen"></span><span class="pollen"></span>
+  </div>
   <header class="site-header">
-    <div class="container">
-      <h1 class="brand">
-        <a href="index.html" aria-label="Về trang chủ Bee Swarm Simulator">
-          <img src="images/logo_BSS.png" alt="Bee Swarm Simulator">
-        </a>
-      </h1>
-
-      <nav class="nav">
-        <a href="items.html">Vật Phẩm</a>
-        <a href="bees.html">Ong</a>
-        <a href="blue.html">Team Blue</a>
-        <a href="red.html">Team Red</a>
-        <a href="white.html">Team White</a>
+    <div class="container header-inner">
+      <a class="brand-link" href="index.html" aria-label="Trang chủ Bee Swarm Simulator">
+        <span class="brand-badge"><img src="images/logo_BSS.png" alt="" /></span>
+        <span class="brand-title-wrap"><span class="brand-title">Bee Swarm Wiki</span>
+          <span class="brand-tag">Robux Store &amp; Database</span></span></a>
+      <nav class="main-nav nav" aria-label="Thanh điều hướng chính">
+        <a class="nav-item" href="items.html"><span aria-hidden="true">📦</span> Vật Phẩm</a><a class="nav-item"
+          href="bees.html"><span aria-hidden="true">🐝</span> Loài Ong</a>
+        <div class="dropdown nav-dropdown is-current">
+          <button class="nav-item dropdown-btn nav-dropdown-toggle" type="button">
+            <span aria-hidden="true">🛡️</span> Đội Hình
+            <span aria-hidden="true">▾</span>
+          </button>
+          <div class="dropdown-menu nav-dropdown-menu">
+            <a class="dropdown-link" href="blue.html"> Team Blue</a>
+            <a class="dropdown-link active" href="red.html" aria-current="page">
+              Team Red</a>
+            <a class="dropdown-link" href="white.html"> Team White</a>
+          </div>
+        </div>
+        <a class="nav-item" href="dangky.html">Đăng Ký</a><a class="nav-item" href="dangnhap.html">Đăng Nhập</a><a
+          class="nav-item nav-cart-btn header-cart-link" href="cart.html" aria-label="Giỏ hàng"><span>🛒 Giỏ
+            hàng</span><span class="cart-badge cart-count-badge" id="cart-badge">0</span></a>
       </nav>
     </div>
   </header>
 
-  <section class="red-table-section">
-    <h2 class="red-title">Team Red – Bee Swarm Simulator</h2>
+  <main class="team-page-section">
+    <div class="container">
+      <div class="team-header-box" style="margin: 1.5rem 0">
+        <h2 class="red-title">🔥 Team Red – Bee Swarm Simulator</h2>
+        <p style="color: #94a3b8">
+          Lối chơi bùng nổ ngọn lửa, sát thương chí mạng cực cao và gom phấn
+          đỏ siêu tốc trên đồng ớt. Bấm xem chi tiết từng trang bị & chú ong
+          trong đội hình!
+        </p>
+      </div>
 
-    <table class="red-table">
-      <thead>
-        <tr>
-          <th>Loại</th>
-          <th>Ảnh</th>
-          <th>Tên</th>
-          <th>Hiệu ứng</th>
-        </tr>
-      </thead>
+      <!-- Phần Trang Bị Red -->
+      <section class="team-block" style="margin-bottom: 2.5rem">
+        <h3 class="team-subtitle" style="color: #ff6f8b; margin-bottom: 1rem">
+          🛡️ Trang Bị Team Red
+        </h3>
+        <div class="item-grid" data-red-equip aria-live="polite"></div>
+      </section>
 
-      <tbody>
-        <!-- Gear -->
-        <tr>
-          <td rowspan="4">Gear</td>
-          <td><img src="images/demon-mask.jpg" class="item-img"></td>
-          <td>Demon Mask</td>
-          <td>Red Boost, Flame</td>
-        </tr>
-
-        <tr>
-          <td><img src="images/fire-mask.jpg" class="item-img"></td>
-          <td>Fire Mask</td>
-          <td>Red Pollen, Flame</td>
-        </tr>
-
-        <tr>
-          <td><img src="images/coconut-clogs.jpg" class="item-img"></td>
-          <td>Coconut Clogs</td>
-          <td>Speed, Jump Power</td>
-        </tr>
-
-        <tr>
-          <td><img src="images/coconut-canister.jpg" class="item-img"></td>
-          <td>Coconut Canister</td>
-          <td>Huge Capacity, Convert</td>
-        </tr>
-
-        <!-- SSA -->
-        <tr>
-          <td rowspan="2">SSA</td>
-          <td><img src="images/ssa-star.jpg" class="item-img"></td>
-          <td>Supreme Star Amulet</td>
-          <td>Scorching Star 🔥</td>
-        </tr>
-
-        <tr>
-          <td><img src="images/ssa-star-red.png" class="item-img"></td>
-          <td>SSA Stats</td>
-          <td>
-            +Red Pollen<br>
-            +Attack<br>
-            +Critical Chance
-          </td>
-        </tr>
-
-        <!-- Bees -->
-        <tr>
-          <td rowspan="4">Bees</td>
-          <td><img src="images/spicy-bee.jpg" class="item-img"></td>
-          <td>Spicy Bee</td>
-          <td>Flame • Inferno</td>
-        </tr>
-
-        <tr>
-          <td><img src="images/precise-bee.jpg" class="item-img"></td>
-          <td>Precise Bee</td>
-          <td>Super Crit</td>
-        </tr>
-
-        <tr>
-          <td><img src="images/demon-bee.jpg" class="item-img"></td>
-          <td>Demon Bee</td>
-          <td>Attack • Flame</td>
-        </tr>
-
-        <tr>
-          <td><img src="images/music-bee.jpg" class="item-img"></td>
-          <td>Music Bee</td>
-          <td>Melody • Focus</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
+      <!-- Phần Đội Ong Red -->
+      <section class="team-block">
+        <h3 class="team-subtitle" style="color: #ff6f8b; margin-bottom: 1rem">
+          🐝 Đội Ong Team Red
+        </h3>
+        <div class="item-grid" data-red-bees aria-live="polite"></div>
+      </section>
+    </div>
+  </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <p>© Nguyễn Minh Tiến</p>
+    <div class="footer-grid">
+      <div class="footer-about">
+        <h2>Bee Swarm Simulator Wiki</h2>
+        <p>© Nguyễn Minh Tiến</p>
+        <p>633 Lê Trọng Tấn, Q. Bình Tân</p>
+        <p>Phổ thông Cao đẳng FPT Polytechnic cơ sở Bình Tân, TP.HCM</p>
+      </div>
+      <div class="footer-links-col">
+        <h3>Liên kết nhanh</h3>
+        <ul class="footer-links-list">
+          <li><a href="items.html">Tra cứu vật phẩm</a></li>
+          <li><a href="bees.html">Bách khoa ong</a></li>
+          <li><a href="blue.html">Cẩm nang Blue Team</a></li>
+          <li><a href="red.html">Cẩm nang Red Team</a></li>
+          <li><a href="white.html">Cẩm nang White Team</a></li>
+        </ul>
+      </div>
+      <div class="footer-map-box">
+        <h3>Bản đồ trường</h3>
+        <iframe title="Bản đồ FPT Polytechnic cơ sở Bình Tân" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d529.0896616432318!2d106.60528449733806!3d10.813932058902806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752b953efb20ef%3A0x41ed21a46cbdc6c!2zRlBUIFBvbHlTY2hvb2wgLSBDxqEgc-G7nyBCw6xuaCBUw6Ju!5e0!3m2!1svi!2s!4v1769408605246!5m2!1svi!2s"></iframe>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Bee Swarm Simulator Wiki · Server Status: ONLINE 🟢</span><span>Game-inspired interface for the Bee Swarm
+        community.</span>
     </div>
   </footer>
 
+  <script src="products.js" defer></script>
 </body>
 
 </html>

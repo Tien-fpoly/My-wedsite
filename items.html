@@ -1,47 +1,140 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ASM</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Catamaran:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="ASMstyles.css">
+  <title>Vật Phẩm - Bee Swarm Simulator Store</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Catamaran:wght@400;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="ASMstyles.css" />
+  <link rel="stylesheet" href="theme.css" />
+  <link rel="stylesheet" href="site-ui.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Space+Grotesk:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@700&display=swap"
+    rel="stylesheet" />
 </head>
 
-<body>
-  <header class = "site-header">
-    <div class = "container">
-      <h1 class="brand">
-        <a href="index.html" aria-label="Về trang chủ Bee Swarm Simulator">
-          <img src="images/logo_BSS.png" alt="Bee Swarm Simulator">
-        </a>
-      </h1>
-
-      <nav class = "nav">
-        <a href="items.html">Vật Phẩm</a>
-        <a href="bees.html">Ong</a>
-        <a href="blue.html">Team Blue</a>
-        <a href="red.html">Team Red</a>
-        <a href="white.html">Team White</a>
+<body class="game-ui-page">
+  <div class="pollen-particles" aria-hidden="true">
+    <span class="pollen"></span><span class="pollen"></span><span class="pollen"></span><span
+      class="pollen"></span><span class="pollen"></span>
+  </div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand-link" href="index.html" aria-label="Trang chủ Bee Swarm Simulator">
+        <span class="brand-badge"><img src="images/logo_BSS.png" alt="" /></span>
+        <span class="brand-title-wrap"><span class="brand-title">Bee Swarm Wiki</span>
+          <span class="brand-tag">Robux Store &amp; Database</span></span>
+      </a>
+      <nav class="main-nav nav" aria-label="Thanh điều hướng chính">
+        <a class="nav-item active" href="items.html" aria-current="page"><span aria-hidden="true">📦</span> Vật Phẩm</a>
+        <a class="nav-item" href="bees.html"><span aria-hidden="true">🐝</span> Loài Ong</a>
+        <div class="dropdown nav-dropdown">
+          <button class="nav-item dropdown-btn nav-dropdown-toggle" type="button">
+            <span aria-hidden="true">🛡️</span> Đội Hình
+            <span aria-hidden="true">▾</span>
+          </button>
+          <div class="dropdown-menu nav-dropdown-menu">
+            <a class="dropdown-link" href="blue.html"> Team Blue</a>
+            <a class="dropdown-link" href="red.html"> Team Red</a>
+            <a class="dropdown-link" href="white.html"> Team White</a>
+          </div>
+        </div>
+        <a class="nav-item" href="dangky.html">Đăng Ký</a><a class="nav-item" href="dangnhap.html">Đăng Nhập</a>
+        <a class="nav-item nav-cart-btn header-cart-link" href="cart.html" aria-label="Giỏ hàng"><span>🛒 Giỏ
+            hàng</span><span class="cart-badge cart-count-badge" id="cart-badge">0</span></a>
       </nav>
     </div>
   </header>
 
   <main class="items-section">
     <div class="container">
-      <h2>Vật Phẩm Bee Swarm Simulator</h2>
-      <p class="items-page-intro">Chọn một vật phẩm để xem thông tin chi tiết.</p>
+      <h2>Vật Phẩm Bee Swarm Simulator (Giá Robux)</h2>
+      <p class="items-page-intro">
+        Tra cứu vật phẩm, xem chi tiết và thêm vào giỏ hàng để thanh toán bằng
+        Robux.
+      </p>
+
+      <!-- Khu vực tìm kiếm và lọc vật phẩm -->
+      <section class="items-filter-bar">
+        <div class="search-input-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="item-search-input"
+            placeholder="Tìm kiếm theo tên vật phẩm, công dụng, hoặc thẻ tag (ví dụ: Honey, Ticket, Glue...)..." />
+        </div>
+
+        <div class="filter-controls-row">
+          <div class="filter-tabs-group">
+            <button type="button" class="item-filter-tab active" data-category="all">
+              Tất cả
+            </button>
+            <button type="button" class="item-filter-tab" data-category="Tài nguyên">
+              Tài nguyên
+            </button>
+            <button type="button" class="item-filter-tab" data-category="Tiền tệ">
+              Tiền tệ
+            </button>
+            <button type="button" class="item-filter-tab" data-category="Nguyên liệu">
+              Nguyên liệu
+            </button>
+            <button type="button" class="item-filter-tab" data-category="hiếm">
+              Vật phẩm hiếm
+            </button>
+          </div>
+
+          <div class="tags-hint-row">
+            <span class="tags-hint-label">Thẻ gợi ý:</span>
+            <span class="tag-pill" onclick="filterByTag('#honey')">#honey</span>
+            <span class="tag-pill" onclick="filterByTag('#ticket')">#ticket</span>
+            <span class="tag-pill" onclick="filterByTag('#royal-jelly')">#royal-jelly</span>
+            <span class="tag-pill" onclick="filterByTag('#glue')">#glue</span>
+            <span class="tag-pill" onclick="filterByTag('#star-jelly')">#star-jelly</span>
+          </div>
+        </div>
+
+        <div class="items-meta-count">
+          <span id="items-count-display">Đang tải vật phẩm...</span>
+        </div>
+      </section>
+
+      <!-- Lưới hiển thị các thẻ vật phẩm -->
       <div class="item-grid" data-item-list aria-live="polite"></div>
     </div>
   </main>
 
-<footer class="site-footer">
-      <div class="container">
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <h2>Bee Swarm Simulator Wiki</h2>
         <p>© Nguyễn Minh Tiến</p>
+        <p>633 Lê Trọng Tấn, Q. Bình Tân</p>
+        <p>Phổ thông Cao đẳng FPT Polytechnic cơ sở Bình Tân, TP.HCM</p>
       </div>
-</footer>
-<script src="products.js" defer></script>
+      <div class="footer-links-col">
+        <h3>Liên kết nhanh</h3>
+        <ul class="footer-links-list">
+          <li><a href="items.html">Tra cứu vật phẩm</a></li>
+          <li><a href="bees.html">Bách khoa ong</a></li>
+          <li><a href="blue.html">Cẩm nang Blue Team</a></li>
+          <li><a href="red.html">Cẩm nang Red Team</a></li>
+          <li><a href="white.html">Cẩm nang White Team</a></li>
+        </ul>
+      </div>
+      <div class="footer-map-box">
+        <h3>Bản đồ trường</h3>
+        <iframe title="Bản đồ FPT Polytechnic cơ sở Bình Tân" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d529.0896616432318!2d106.60528449733806!3d10.813932058902806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752b953efb20ef%3A0x41ed21a46cbdc6c!2zRlBUIFBvbHlTY2hvb2wgLSBDxqEgc-G7nyBCw6xuaCBUw6Ju!5e0!3m2!1svi!2s!4v1769408605246!5m2!1svi!2s"></iframe>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Bee Swarm Simulator Wiki · Server Status: ONLINE 🟢</span><span>Game-inspired interface for the Bee Swarm
+        community.</span>
+    </div>
+  </footer>
+
+  <script src="products.js" defer></script>
 </body>
 
 </html>
-

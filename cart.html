@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Giỏ Hàng Robux - Bee Swarm Simulator</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Catamaran:wght@400;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="ASMstyles.css" />
+  <link rel="stylesheet" href="cart.css" />
+  <link rel="stylesheet" href="theme.css" />
+  <link rel="stylesheet" href="site-ui.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Space+Grotesk:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@700&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body class="game-ui-page">
+  <div class="pollen-particles" aria-hidden="true">
+    <span class="pollen"></span><span class="pollen"></span><span class="pollen"></span><span
+      class="pollen"></span><span class="pollen"></span>
+  </div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand-link" href="index.html" aria-label="Trang chủ Bee Swarm Simulator"><span class="brand-badge"><img
+            src="images/logo_BSS.png" alt="" /></span>
+        <span class="brand-title-wrap"><span class="brand-title">Bee Swarm
+            Wiki</span>
+          <span class="brand-tag">Robux Store &amp; Database</span></span></a>
+      <nav class="main-nav nav" aria-label="Thanh điều hướng chính">
+        <a class="nav-item" href="items.html"><span aria-hidden="true">📦</span> Vật Phẩm</a><a class="nav-item"
+          href="bees.html"><span aria-hidden="true">🐝</span> Loài Ong</a>
+        <div class="dropdown nav-dropdown">
+          <button class="nav-item dropdown-btn nav-dropdown-toggle" type="button">
+            <span aria-hidden="true">🛡️</span> Đội Hình
+            <span aria-hidden="true">▾</span>
+          </button>
+          <div class="dropdown-menu nav-dropdown-menu">
+            <a class="dropdown-link" href="blue.html"> Team Blue</a>
+            <a class="dropdown-link" href="red.html"> Team Red</a>
+            <a class="dropdown-link" href="white.html"> Team White</a>
+          </div>
+        </div>
+        <a class="nav-item" href="dangky.html">Đăng Ký</a><a class="nav-item" href="dangnhap.html">Đăng Nhập</a><a
+          class="nav-item nav-cart-btn header-cart-link active" href="cart.html" aria-current="page"
+          aria-label="Giỏ hàng"><span>🛒 Giỏ hàng</span><span class="cart-badge cart-count-badge"
+            id="cart-badge">0</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="cart-page-section">
+    <div class="container">
+      <div class="cart-page-header">
+        <span class="cart-eyebrow">BEE SWARM SIMULATOR · ROBUX STORE</span>
+        <h2>Giỏ hàng của bạn</h2>
+        <p class="cart-page-desc">
+          Kiểm tra vật phẩm đã chọn, nhập thông tin nhận hàng và hoàn tất đơn
+          hàng.
+        </p>
+        <div class="cart-step-list" aria-label="Các bước đặt hàng">
+          <span class="cart-step is-current"><b>1</b> Giỏ hàng</span>
+          <span class="cart-step-divider" aria-hidden="true"></span>
+          <span class="cart-step"><b>2</b> Thông tin nhận hàng</span>
+          <span class="cart-step-divider" aria-hidden="true"></span>
+          <span class="cart-step"><b>3</b> Xác nhận</span>
+        </div>
+      </div>
+
+      <!-- Khu vực hiển thị khi giỏ hàng trống -->
+      <div id="cart-empty-view" class="cart-empty-box" style="display: none">
+        <div class="empty-icon" aria-hidden="true">🧺</div>
+        <h3>Giỏ hàng của bạn đang trống!</h3>
+        <p>
+          Hãy khám phá các vật phẩm cực hot của Bee Swarm Simulator để thêm
+          vào giỏ nhé.
+        </p>
+        <a href="items.html" class="primary-btn">← Khám phá cửa hàng vật phẩm</a>
+      </div>
+
+      <!-- Khu vực hiển thị giỏ hàng & form thanh toán (khi có sản phẩm) -->
+      <div id="cart-main-content" class="cart-layout-grid">
+        <!-- Cột trái: Danh sách vật phẩm trong giỏ -->
+        <section class="cart-items-card card">
+          <div class="cart-card-header">
+            <h3>
+              Vật phẩm đã chọn
+              <span class="cart-item-count"><span id="cart-items-total-qty">0</span> món</span>
+            </h3>
+            <button type="button" class="btn-clear-all" onclick="xoagh()">
+              🗑️ Xóa tất cả
+            </button>
+          </div>
+
+          <!-- Bảng danh sách vật phẩm -->
+          <div class="cart-table-wrapper">
+            <table class="cart-table">
+              <thead>
+                <tr>
+                  <th>Vật phẩm</th>
+                  <th>Đơn giá</th>
+                  <th>Số lượng</th>
+                  <th style="text-align: right">Thành tiền</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="cart-table-body">
+                <!-- Render bằng cart.js -->
+              </tbody>
+            </table>
+          </div>
+
+          <div class="cart-card-footer">
+            <a href="items.html" class="link-continue-shopping">
+              ← Tiếp tục chọn thêm vật phẩm
+            </a>
+            <div class="cart-subtotal-box">
+              <span>Tổng thanh toán:</span>
+              <strong class="cart-grand-total">
+                <span class="robux-symbol">R$</span>
+                <span id="cart-total-robux">0</span> Robux
+              </strong>
+            </div>
+          </div>
+        </section>
+
+        <!-- Cột phải: Form thông tin & thanh toán -->
+        <section class="checkout-card card">
+          <div class="checkout-card-header">
+            <h3>💳 Thông Tin Thanh Toán</h3>
+            <p>Nhận đồ trực tiếp trong Server VIP Bee Swarm Simulator</p>
+          </div>
+
+          <form id="checkout-form" onsubmit="handleCheckout(event)">
+            <div class="form-field">
+              <label for="roblox-username">
+                Tên tài khoản Roblox (Roblox Username)
+                <span class="required-star">*</span>
+              </label>
+              <div class="input-icon-wrap">
+                <span class="icon">👤</span>
+                <input type="text" id="roblox-username" required placeholder="Ví dụ: BeeSwarmMaster_VN"
+                  autocomplete="off" />
+              </div>
+              <small class="field-help">Nhập chính xác tên Roblox để shop kết bạn / mời vào Server
+                VIP giao vật phẩm.</small>
+            </div>
+
+            <div class="form-field">
+              <label for="delivery-method">Phương thức nhận vật phẩm trong Bee Swarm:</label>
+              <div class="input-icon-wrap">
+                <span class="icon">🎮</span>
+                <select id="delivery-method">
+                  <option value="vip">
+                    🟢 Gặp trực tiếp trong Server VIP Bee Swarm
+                  </option>
+                  <option value="gamepass">
+                    🟣 Shop mua Gamepass Robux của bạn
+                  </option>
+                  <option value="group">
+                    🟡 Chuyển Robux qua Roblox Group Payout
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="contact-info">Số Zalo / Nick Discord (Để tiện nhắn khi giao hàng):</label>
+              <div class="input-icon-wrap">
+                <span class="icon">💬</span>
+                <input type="text" id="contact-info" placeholder="Số điện thoại hoặc nick Discord" />
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="order-note">Ghi chú giao dịch (Tùy chọn):</label>
+              <textarea id="order-note" rows="2" placeholder="Ví dụ: Mình rảnh tối từ 19h - 22h..."></textarea>
+            </div>
+
+            <!-- Tóm tắt thanh toán -->
+            <div class="checkout-bill-summary">
+              <div class="summary-line">
+                <span>Số lượng món:</span>
+                <strong id="summary-qty">0 món</strong>
+              </div>
+              <div class="summary-line">
+                <span>Tổng Robux cần trả:</span>
+                <strong class="summary-price">
+                  <span class="robux-symbol">R$</span>
+                  <span id="summary-total-robux">0</span>
+                </strong>
+              </div>
+            </div>
+
+            <div class="checkout-guarantee">
+              🛡️ Cam kết: Chuẩn đồ Bee Swarm Simulator 100%. Nhận đồ trong
+              vòng 5 - 15 phút sau khi xác nhận!
+            </div>
+
+            <button type="submit" id="btn-submit-checkout" class="btn-checkout-submit">
+              ✅ Xác Nhận Thanh Toán (R$)
+            </button>
+          </form>
+        </section>
+      </div>
+
+      <!-- Khu vực hiển thị hóa đơn khi thanh toán thành công -->
+      <section id="receipt-section" class="receipt-card-wrapper card" style="display: none"
+        aria-labelledby="receipt-title" aria-live="polite">
+        <div class="receipt-success-icon" aria-hidden="true">✓</div>
+        <span class="receipt-success-label">ĐƠN HÀNG ĐÃ ĐƯỢC GHI NHẬN</span>
+        <h2 id="receipt-title">Thanh toán thành công!</h2>
+        <p class="receipt-sub-msg">
+          Đơn hàng vật phẩm Bee Swarm Simulator của bạn đã được ghi nhận vào
+          hệ thống.
+        </p>
+
+        <div class="receipt-invoice-box" id="receipt-invoice-box">
+          <!-- Render thông tin hóa đơn bằng cart.js -->
+        </div>
+
+        <div class="receipt-action-btns">
+          <a href="items.html" class="primary-btn">Tiếp tục mua sắm vật phẩm 🐝</a>
+          <a href="index.html" class="secondary-btn">Về trang chủ</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <h2>Bee Swarm Simulator Wiki</h2>
+        <p>© Nguyễn Minh Tiến</p>
+        <p>633 Lê Trọng Tấn, Q. Bình Tân</p>
+        <p>Phổ thông Cao đẳng FPT Polytechnic cơ sở Bình Tân, TP.HCM</p>
+      </div>
+      <div class="footer-links-col">
+        <h3>Liên kết nhanh</h3>
+        <ul class="footer-links-list">
+          <li><a href="items.html">Tra cứu vật phẩm</a></li>
+          <li><a href="bees.html">Bách khoa ong</a></li>
+          <li><a href="blue.html">Cẩm nang Blue Team</a></li>
+          <li><a href="red.html">Cẩm nang Red Team</a></li>
+          <li><a href="white.html">Cẩm nang White Team</a></li>
+        </ul>
+      </div>
+      <div class="footer-map-box">
+        <h3>Bản đồ trường</h3>
+        <iframe title="Bản đồ FPT Polytechnic cơ sở Bình Tân" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d529.0896616432318!2d106.60528449733806!3d10.813932058902806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752b953efb20ef%3A0x41ed21a46cbdc6c!2zRlBUIFBvbHlTY2hvb2wgLSBDxqEgc-G7nyBCw6xuaCBUw6Ju!5e0!3m2!1svi!2s!4v1769408605246!5m2!1svi!2s"></iframe>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Bee Swarm Simulator Wiki · Server Status: ONLINE 🟢</span><span>Game-inspired interface for the Bee Swarm
+        community.</span>
+    </div>
+  </footer>
+
+  <script src="cart.js" defer></script>
+</body>
+
+</html>
